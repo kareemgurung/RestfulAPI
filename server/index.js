@@ -11,6 +11,7 @@ const app = express();
 //Middleware
 app.use(cors());//let us use our api on other domain
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 //Routes
 app.use('/posts', postsRoute);
