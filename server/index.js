@@ -15,6 +15,7 @@ app.use(express.json());
 //Routes
 app.use('/posts', postsRoute);
 
+//Connection to mongodb using mongoose
 mongoose.connect(
     process.env.DB_URL,
     {useNewUrlParser: true, useUnifiedTopology: true},
