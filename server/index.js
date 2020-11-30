@@ -1,11 +1,15 @@
 require('dotenv/config');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const postsRoute = require('./routes/posts.js');
 
 const app = express();
 
+
+//Middleware
+app.use(cors());//let us use our api on other domain
 app.use(express.json());
 
 //Routes
