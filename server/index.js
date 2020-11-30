@@ -2,33 +2,14 @@ require('dotenv/config');
 const express = require('express');
 const mongoose = require('mongoose');
 
+const postsRoute = require('./routes/posts.js');
+
 const app = express();
 
+app.use(express.json());
+
 //Routes
-app.get('/', (req, res) => {
-    res.send("I am going to live.");
-    console.log('No you are not going to live');
-    
-})
-
-
-//Create 
-// app.get('/posts', (req, res) ={
-//     try {
-//         const post = req.body;
-
-//         res.json(post);
-//     } catch (error) {
-//         console.error(error.message);
-//     }
-// })
-//Read
-
-//Update
-
-//Delete
-
-//Connect to db
+app.use('/posts', postsRoute);
 
 mongoose.connect(
     process.env.DB_URL,
